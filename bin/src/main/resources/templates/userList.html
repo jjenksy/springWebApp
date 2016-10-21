@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Spring Thyme Seed Starter Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{../static/style.css}"/>
+</head>
+<body>
+<h2>Your Reading List</h2>
+<div th:unless="${#lists.isEmpty(users)}">
+    <dl th:each="user : ${users}">
+        <dt class="bookHeadline">
+            <span th:text="${user.firstName}">Title</span> by
+            <span th:text="${user.lastName}">Author</span>
+            (ISBN: <span th:text="${user.email}">ISBN</span>)
+        </dt>
+        <dd class="bookDescription">
+<span th:if="${user.bio}"
+      th:text="${user.bio}">Description</span>
+<span th:if="${user.bio eq null}">
+No description available</span>
+        </dd>
+    </dl>
+</div>
+<div th:if="${#lists.isEmpty(users)}">
+    <p>You have no books in your book list</p>
+</div>
+<hr/>
+<h3>Add a book</h3>
+<form method="POST">
+    <label for="fistName">Title:</label>
+    <input type="text" name="fistName" size="50"/><br/>
+    <label for="lastName">Author:</label>
+    <input type="text" name="lastName" size="50"/><br/>
+    <label for="email">email:</label>
+    <input type="text" name="email" size="15"/><br/>
+    <label for="bio">Description:</label><br/>
+<textarea name="bio" cols="80" rows="5">
+</textarea><br/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
