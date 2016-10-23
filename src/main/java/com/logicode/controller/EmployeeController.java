@@ -31,7 +31,6 @@ public class EmployeeController {
         employee.setName(name);
         employee.setEmail(name+"@logicode.com");
         employee.setBio("A super great full stack developer!!");
-        System.out.println(employee);
 
         return employee;
 
