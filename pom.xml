@@ -81,9 +81,13 @@
 			<artifactId>apacheds-server-jndi</artifactId>
 			<version>1.5.5</version>
 		</dependency>
-	</dependencies>
 
-	<build>
+    </dependencies>
+
+
+
+
+    <build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
