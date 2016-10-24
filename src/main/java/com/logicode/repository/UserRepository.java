@@ -1,7 +1,7 @@
 package com.logicode.repository;
 
 import com.logicode.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  *type of its ID property. The interface
   *will be implemented automatically at runtime when the application is started.
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
     /**
      * Enable the user to be looked up my userName

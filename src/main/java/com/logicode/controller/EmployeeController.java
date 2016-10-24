@@ -1,10 +1,7 @@
 package com.logicode.controller;
 
 import com.logicode.model.Employee;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by jjenkins on 10/21/2016.
@@ -25,6 +22,7 @@ public class EmployeeController {
      * @example http://localhost:8080/greeting/john
      *
      */
+    //@GetMapping("/") todo test getMapping
     @RequestMapping(value = "/{name}", method = RequestMethod.GET, produces = "application/json")
     public Employee getEmployeeInJSON(@PathVariable String name) {
 

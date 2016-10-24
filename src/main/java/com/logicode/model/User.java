@@ -1,9 +1,6 @@
 package com.logicode.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by jjenkins on 10/21/2016.
@@ -12,10 +9,11 @@ import javax.persistence.Id;
  *designating it as a JPA entity. The id property is annotated with @Id and @Generated-
  *Value to indicate that this field is the entity’s identity and that its value will be automatically
  *provided.
- *
+ *@Table the name of the table in the database
  */
 
 @Entity
+@Table(name = "users")
 public class User {
 
     //the key that is Auto generated

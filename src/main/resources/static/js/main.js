@@ -13,4 +13,12 @@ $(document).ready(function() {
         console.log(data)
 
     });
+
+    $.ajax({
+        url: "/tridiumData"
+    }).then(function(data) {
+
+        console.log(data)
+
+    });
 });
