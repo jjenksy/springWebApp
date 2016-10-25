@@ -1,6 +1,7 @@
 package com.logicode.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by jjenkins on 10/21/2016.
@@ -14,6 +15,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@XmlRootElement(name = "users")
 public class User {
 
     //the key that is Auto generated

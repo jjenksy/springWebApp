@@ -1,0 +1,22 @@
+<div>
+    <!--angular table demonstration-->
+    <table>
+        <thead>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>email</th>
+        <th>Bio</th>
+        <th>UserName</th>
+        </thead>
+        <tbody>
+        <!--ng repeat is a for each loop-->
+        <tr ng-repeat="users in user">
+            <td>{{users.fistName}}</td>
+            <td>{{users.lastName}}</td>
+            <td>{{users.bio}}</td>
+            <td>{{users.email}}</td>
+            <td>{{users.userName}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

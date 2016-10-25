@@ -33,4 +33,16 @@ public class EmployeeController {
         return employee;
 
     }
+
+
+    @RequestMapping(value = "/" , method = RequestMethod.GET, produces = "application/json")
+    public Employee getEmployeeVal(){
+
+        employee.setName("John");
+        employee.setEmail("john@edcsus.com");
+        employee.setBio("A super great full stack developer!!");
+
+
+        return employee;
+    }
 }

@@ -5,10 +5,7 @@ import com.logicode.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,11 +17,10 @@ import java.util.List;
  *to a base URL path of “/”.
  */
 
-@Controller
+@RestController
 @RequestMapping("/userList")//specify this controller to be the root of the domain
 public class UserController {
 
-    private static final String userName = "John";
     //create a UserRepository object
     private UserRepository userRepository;
 
@@ -49,18 +45,28 @@ public class UserController {
      */
 
     //the path varible must match the request mapping value when expecting arguments
-    @RequestMapping(method = RequestMethod.GET)
-    public String users(Model model){
+    @RequestMapping(value = "/{name}",method = RequestMethod.GET,  produces = "application/json")
+    public Iterable users(@PathVariable String name, Model model){
+        System.out.println(name);
         //create a list and call the UserRepository findByuserName method to populate it
-        List<User> userList = userRepository.findByuserName(userName);
+        Iterable<User> userList = userRepository.findByfistName(name);
 
-        //if there is something in the list
-        if(userList != null){
-            //add the list to the model the users is the list we will itterate over in the view
-            model.addAttribute("users", userList);
-        }
-        //return the logical view name.
-        return "userList";
+        return userList;
+    }
+
+    /**
+     * @user Method to findAll my users in the database
+     * @param model the view
+     * @return
+     */
+
+    //the path varible must match the request mapping value when expecting arguments
+    @RequestMapping(value = "/findAll",method = RequestMethod.GET,  produces = "application/json")
+    public Iterable usersFindAll(Model model){
+        //create a list and call the UserRepository findByuserName method to populate it
+        Iterable<User> userList = userRepository.findAll();
+
+        return userList;
     }
 
 
@@ -74,14 +80,12 @@ public class UserController {
      * @return the view
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String addToUserList(User user){
+    public User addToUserList(User user){
 
-        //set the user name
-        user.setUserName(userName);
         //add the user to the repo
         userRepository.save(user);
-        System.out.println(user.getBio());
 
-        return "redirect:/userList";
+
+        return user;
     }
 }

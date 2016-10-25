@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--declare this as an angular app location-->
+<html ng-app="demo">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bower_components/angular/angular.js"></script>
+
+</head>
+<body>
+
+
+
+
+<!--the {{}} are binding expressions in angular-->
+<div ng-controller="Hello">
+    <p>The Name is {{greeting.name}}</p>
+    <p>The email is {{greeting.email}}</p>
+    <p>The bio is {{greeting.bio}}</p>
+    <p>The processors are {{greeting.processors}}</p>
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

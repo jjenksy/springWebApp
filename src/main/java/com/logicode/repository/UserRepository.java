@@ -22,6 +22,8 @@ public interface UserRepository extends CrudRepository<User, Long> {
      * @return
      */
 
+    //the argument name that we are search by has to match the th varibles in the java object
     List<User> findByuserName(String userName);
+    List<User> findByfistName(String fistName);
 
 }
