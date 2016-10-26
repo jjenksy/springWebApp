@@ -5,22 +5,23 @@
 /**
  * This is my main Javascript file for the web front end controller
  */
-
-
-    'use strict';
-
     //This controller module is represented as a simple JavaScript function
-// that is given AngularJS’s $scope and $http components.
-// It uses the $http component to consume the REST service at "/employee/John".
-    //angular ajax request
-(function mainApp() {
-    angular.module('demo', [])
-        .controller('Hello', function ($scope, $http) {
-            $http.get('/employee/John').then(function (response) {
-                console.log(response.data);
-                $scope.greeting = response.data;
-            });
-        });
+// Main angular routing app
+(function() {
+    'use strict';
+    var app = angular.module("crudPage",["ngRoute"]);
+
+    //config for app runs this when app is initially created
+    app.config(function($routeProvider){
+
+        //describe the route when user navigates to /main
+        $routeProvider.when('/main',{
+            templateUrl:"main.html",
+            controller: "MainCtlr" //determines the controller for the templateURL view
+        })//@otherwise if you dont know the url
+            .otherwise({redirectTo:"/main"})
+    })
+
 })();
 
 

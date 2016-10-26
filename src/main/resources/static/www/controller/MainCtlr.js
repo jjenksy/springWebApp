@@ -4,11 +4,10 @@
 /**
  * This module show angularjs used for http and dom manipulation
  */
-
 (function (){
     "use strict";
     //get the module that is defined in the html page example: ng-app="crudPage"
-    var app = angular.module("crudPage",[]);
+    var app = angular.module("crudPage");
     /**
      *THis is a controller in angular js
      * @param $scope the dom
@@ -21,8 +20,7 @@
         $scope.username = "angular";
         $scope.message = "Angular Viewer";
 
-        //search function emplementation
-
+        //search function implementation
         $scope.search = function(username){
             $log.info("Searching for " + username);
                 //custom service to get a parse the http response
@@ -34,11 +32,6 @@
                 //scroll to the hashed ID appending to the URL
                 $anchorScroll('userDetails');
             })
-
-        };
-        //searchALL function todo fix this implemention
-        $scope.findAll = function(){
-
         };
     };
     //declare the app controller and assign it a function
