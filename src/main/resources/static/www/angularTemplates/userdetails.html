@@ -1,8 +1,8 @@
-<div>
+<div id="userDetails">
     <!--angular table demonstration-->
-    <table>
-        <thead>
-        <th>FirstName</th>
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+        <th scope="row">FirstName</th>
         <th>LastName</th>
         <th>email</th>
         <th>Bio</th>
@@ -11,7 +11,7 @@
         <tbody>
         <!--ng repeat is a for each loop-->
         <tr ng-repeat="users in user">
-            <td>{{users.fistName}}</td>
+            <td scope="row">{{users.fistName}}</td>
             <td>{{users.lastName}}</td>
             <td>{{users.bio}}</td>
             <td>{{users.email}}</td>

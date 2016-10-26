@@ -7,50 +7,41 @@
 
 (function (){
     "use strict";
-
     //get the module that is defined in the html page example: ng-app="crudPage"
     var app = angular.module("crudPage",[]);
     /**
      *THis is a controller in angular js
      * @param $scope the dom
-     * @param $http get, post, put and delete methods
+     * @param userDetails custom service that makes the http calls
+     * @param $anchorScroll allows for scrolling to the tagged dom id
+     * @param $location allows to set an identifier in the URL bar
      * @constructor
      */
-    var MainCtlr = function($scope, $http){
+    var MainCtlr = function($scope, userDetails, $log , $anchorScroll, $location){
         $scope.username = "angular";
         $scope.message = "Angular Viewer";
 
         //search function emplementation
+
         $scope.search = function(username){
-            console.log(username);
-            //http method returns a promise
-            $http.get("/userList/"+username)
-                .then(function(response){
-                    //returns everything in the database
-                    console.log(response.data);
-                    $scope.user = response.data;
-                }).catch(function(e){
-                //catch any exception thrown
-                console.log(e);
-            });
+            $log.info("Searching for " + username);
+                //custom service to get a parse the http response
+                userDetails.getUser(username).then(function(data)
+            {
+                $scope.user = data;
+                //set the hash(url fragment identifier)
+                $location.hash('userDetails');
+                //scroll to the hashed ID appending to the URL
+                $anchorScroll('userDetails');
+            })
+
         };
-        //searchALL function emplementation
+        //searchALL function todo fix this implemention
         $scope.findAll = function(){
 
-            //http method returns a promise
-            $http.get("/userList/findAll")
-                .then(function(response){
-                    //returns everything in the database
-                    console.log(response.data);
-                    $scope.user = response.data;
-                }).catch(function(e){
-                //catch any exception thrown
-                console.log(e);
-            });
         };
     };
     //declare the app controller and assign it a function
     //this binds this to the html page example = ng-controller="MainCtlr"
     app.controller("MainCtlr",MainCtlr);
-
 }());
