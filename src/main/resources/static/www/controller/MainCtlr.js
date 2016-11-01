@@ -24,9 +24,11 @@
         $scope.search = function(username){
             $log.info("Searching for " + username);
                 //custom service to get a parse the http response
+            console.log(username);
                 userDetails.getUser(username).then(function(data)
             {
                 $scope.user = data;
+                console.log(data);
                 //set the hash(url fragment identifier)
                 $location.hash('userDetails');
                 //scroll to the hashed ID appending to the URL
@@ -35,6 +37,6 @@
         };
     };
     //declare the app controller and assign it a function
-    //this binds this to the html page example = ng-controller="MainCtlr"
+    //sets up my controller name and assigns it the named function as the cotnroller
     app.controller("MainCtlr",MainCtlr);
 }());

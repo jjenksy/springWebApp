@@ -1,22 +1,7 @@
 <div id="userDetails">
-    <!--angular table demonstration-->
-    <table class="table table-striped">
-        <thead class="thead-inverse">
-        <th scope="row">FirstName</th>
-        <th>LastName</th>
-        <th>email</th>
-        <th>Bio</th>
-        <th>UserName</th>
-        </thead>
-        <tbody>
-        <!--ng repeat is a for each loop-->
-        <tr ng-repeat="users in user">
-            <td scope="row">{{users.fistName}}</td>
-            <td>{{users.lastName}}</td>
-            <td>{{users.bio}}</td>
-            <td>{{users.email}}</td>
-            <td>{{users.userName}}</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="page-header">
+        <h1>{{user.name}}</h1>
+    </div>
+    <img src="{{user.avatar_url}}" class="img-responsive" alt="USER" width="304" height="236">
+
 </div>

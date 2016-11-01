@@ -1,0 +1,143 @@
+<form class="form-horizontal">
+    <!--left side coloumn on form-->
+    <h1>{{ticketName}}</h1>
+    <h6>{{message}}</h6>
+    <div class="row">
+        <div class="col-sm-6">
+            <!--service order number-->
+            <div class="form-group">
+                <label for="serviceOrderNumber" class="col-md-4 control-label">Service Order</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="serviceOrderNumber" placeholder="0123456">
+                </div>
+            </div>
+            <!-- end service order number-->
+            <!--parent workOrder number-->
+            <div class="form-group">
+                <label for="parentWorkOrderNumber" class="col-md-4 control-label">Parent W.O.</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="parentWorkOrderNumber" placeholder="0123456">
+                </div>
+            </div>
+            <!-- end -parent workOrder  number-->
+            <!--Customer Site number-->
+            <div class="form-group">
+                <label for="customerSiteNumber" class="col-md-4 control-label">Customer Site #</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="customerSiteNumber" placeholder="01">
+                </div>
+            </div>
+            <!-- end Customer Site number-->
+            <!--Customer-->
+            <div class="form-group">
+
+                <!--use a buttons ng-click directive to navigate to a new route-->
+                <label for="customer"  class="col-md-4 control-label"> <button id="addNewCustomer" type="button"  ng-click="go('/newAddress')" class="btn btn-primary btn-sm">Add New</button>
+                    Customer
+                </label>
+                <div class="col-md-8">
+                    <select name="customer" id="customer" class="form-control"  ng-model="selectedCustomer" ng-change="changedValue()" >
+                        <option value="{{customer.id}}" ng-repeat="customer in customers">
+                            {{customer.customerName}}
+                        </option>
+                    </select>
+
+                </div>
+            </div>
+            <!-- end Customer]-->
+            <!--Customer PO-->
+            <div class="form-group">
+                <label for="customerPO" class="col-md-4 control-label">Customer P.O.</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="customerPO" placeholder="Bar">
+                </div>
+            </div>
+            <!-- end Customer PO-->
+            <!--onsite contact number-->
+            <div class="form-group">
+                <label for="onsiteContactNumber" class="col-md-4 control-label">On site contact #</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="onsiteContactNumber" placeholder="Baz">
+                </div>
+            </div>
+            <!-- end -onsite contact number-->
+            <!--onsite contact number-->
+            <div class="form-group">
+                <label for="onsiteContactName" class="col-md-4 control-label">On site contact name</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="onsiteContactName" placeholder="FooBar">
+                </div>
+            </div>
+            <!-- end -onsite contact number-->
+        </div>
+        <!--end of left side coloumn-->
+        <!--right side coloumn on form-->
+        <div class="col-sm-6">
+            <!--serviceOrderNumberOpenDate open date-->
+            <div class="form-group">
+                <label for="serviceOrderNumberOpenDate" class="col-md-4 control-label">Open Date</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="serviceOrderNumberOpenDate" placeholder="today">
+                </div>
+            </div>
+            <!-- serviceOrderNumberOpenDate end open date-->
+            <!--parentWorkOrderNumberOpenDate open date-->
+            <div class="form-group">
+                <label for="parentWorkOrderNumberOpenDate" class="col-md-4 control-label">Open Date</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="parentWorkOrderNumberOpenDate" placeholder="yesterday">
+                </div>
+            </div>
+            <!-- parentWorkOrderNumberOpenDate end open date-->
+            <!--owner-->
+            <div class="form-group">
+                <label for="owner" class="col-md-4 control-label">Owner</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="owner" placeholder="eLert">
+                </div>
+            </div>
+            <!-- end owner-->
+            <!--tech-->
+            <div class="form-group">
+                <label for="tech" class="col-md-4 control-label">Technician</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="tech" placeholder="Super Tech">
+                </div>
+            </div>
+            <!-- end tech-->
+            <!--customer address display area-->
+            <div class="form-group">
+                <label for="address" class="col-md-4 control-label">Address</label>
+                <div class="well col-md-8" id="address">
+                {{address}}
+                {{city}}
+                {{zip}}
+                {{country}}
+                </div>
+            </div>
+            <!--end customer address display area-->
+        </div>
+        <!--full width coloumn of form-->
+        <div class="col-sm-12">
+            <!--symptoms-->
+        <div class="form-group">
+            <label for="Symptoms" class="col-md-2  control-label">Symptoms</label>
+            <div class="col-md-10">
+                <textarea class="form-control" id="Symptoms" name="textarea">Super Broken</textarea>
+            </div>
+        </div>
+            <!--end symptoms-->
+
+            <!--service Notes-->
+            <div class="form-group">
+                <label for="serviceNotes" class="col-md-2  control-label">Service Notes</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="serviceNotes" name="textarea">Fixed it</textarea>
+                </div>
+            </div>
+            <!--end symptoms-->
+    </div>
+    </div>
+
+<button type="submit" class="btn btn-default">Submit</button>
+</form>

@@ -74,18 +74,14 @@ public class UserController {
      * Handles HTTP POST requests for /{user}, binding the
      * data in the body of the request to a User object. This method sets the User
      * object’s userName property to the User’s name, and then saves the modified
-     * User via the repository’s save() method. Finally, it returns by specifying a redirect
-     * to /{user} (which will be handled by the other controller method).
+     * User via the repository’s save() method
      * @param user the user object reference
-     * @return the view
      */
     @RequestMapping(method = RequestMethod.POST)
-    public User addToUserList(User user){
+    public void addToUserList(User user){
 
         //add the user to the repo
         userRepository.save(user);
 
-
-        return user;
     }
 }
