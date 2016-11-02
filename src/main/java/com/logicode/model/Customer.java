@@ -1,4 +1,4 @@
-package com.logicode.model;
+package com.logicode.Model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
