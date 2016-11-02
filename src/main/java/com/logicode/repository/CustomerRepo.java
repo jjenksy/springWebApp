@@ -1,6 +1,6 @@
 package com.logicode.repository;
 
-import com.logicode.model.Customer;
+import com.logicode.Model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,12 +1,12 @@
 package com.logicode.controller;
 
-import com.logicode.model.Employee;
+import com.logicode.Model.Employee;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by jjenkins on 10/21/2016.
  * This controller uses restful services creating a JSON object to allow fo passing of data to the client
- *
+ *test
  */
 @RestController
 @RequestMapping("/employee")
